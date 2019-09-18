@@ -25,13 +25,24 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-
     ],
+    externals: {
+      'CANNON': 'CANNON'
+    },
     module: {
-        rules: [{
-            test: /\.tsx?$/,
-            loader: 'ts-loader',
-            exclude: /node_modules/
-        }]
+        rules: [
+          {
+              test: /\.tsx?$/,
+              loader: 'ts-loader',
+              exclude: /node_modules/
+          },
+          {
+            test: /\.css$/,
+            use: [
+              'style-loader',
+              'css-loader'
+            ]
+          }
+        ]
     }
 }

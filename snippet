@@ -1,0 +1,28 @@
+    const textures = [
+      {name: "tree", src: "img/tree.jpg"}
+    ]
+    // textures.forEach(t => {
+    //   const task = this._loader.addTextureTask(t.name, t.src)
+    //   task.onSuccess = (result) => {
+    //     this._assets[result.name] = result.texture
+    //   }
+    // })
+    // textures.map(t => this._assetsManager.addTextureTask(t.name, t.src))
+    // .map(task => task.onSuccess = (result) => {
+    //     this._assets[result.name] = result.texture
+    //     console.log("load finished: " + result.name)
+
+    //   })
+    // this._assetsManager.onFinish = () => {
+    //   console.log("load finished.")
+    // }
+    const textureTask = this._assetsManager.addTextureTask("treeTask", "./img/tree.jpg");
+    textureTask.onSuccess = function(task) {
+      console.log("loaded. " + task)
+    }
+    this._assetsManager.useDefaultLoadingScreen = false
+    this._assetsManager.load()
+    this._assetsManager.onFinish = () => {
+      console.log("finished.")
+    }
+    console.log("start loading")

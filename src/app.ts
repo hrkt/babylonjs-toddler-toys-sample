@@ -1,11 +1,17 @@
-import MyScene from './my-scene'
+import MainScene from './main-scene'
 window.addEventListener('DOMContentLoaded', () => {
     // Create the game using the 'renderCanvas'.
-    let game = new MyScene('renderCanvas');
+    let mainScene = new MainScene('renderCanvas')
 
     // Create the scene.
-    game.createScene();
+    mainScene.createScene()
 
     // Start render loop.
-    game.doRender();
-  });
+    mainScene.doRender()
+
+    document.getElementById('restartBtn').addEventListener('click', () => {
+      console.log("reset event fired.")
+      mainScene.reset()
+    })
+  })
+
